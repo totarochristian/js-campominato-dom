@@ -1,0 +1,55 @@
+/****************************************************************************/
+/********************************** Import **********************************/
+/****************************************************************************/
+@import url("./general-styles-library.css");
+
+/****************************************************************************/
+/**************************** Variables definition **************************/
+/****************************************************************************/
+:root{
+    --header-height: 80px;
+    --footer-height: 80px;
+    --main-height: calc(100vh - var(--header-height) - var(--footer-height));
+
+    --numOfSquarePerRow: 1;
+    --squareSize: calc(100% / var(--numOfSquarePerRow));
+}
+
+/****************************************************************************/
+/********************************** Reset ***********************************/
+/****************************************************************************/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+/****************************************************************************/
+/********************************* General **********************************/
+/****************************************************************************/
+header{
+    height: var(--header-height);
+}
+footer{
+    height: var(--footer-height);
+}
+main{
+    height: var(--main-height);
+}
+
+.square{
+    width: var(--squareSize);
+    height: var(--squareSize);
+    background-image: url("../assets/img/square-bg.webp");
+    background-size: cover;
+    filter: brightness(70%);
+    cursor: pointer;
+}
+.square:hover{
+    filter: brightness(100%);
+}
+
+#gameContainer{
+    max-width: 750px;
+    max-height: 750px;
+}

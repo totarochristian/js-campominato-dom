@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Campo minato</title>
+    <link rel="shortcut icon" href="./assets/img/icon.avif" type="image/x-icon">
+    <!-- Include custom css file -->
+    <link rel="stylesheet" href="./css/main-style.css">
+    <!-- Include custom js files -->
+    <script src="./js/utility.js" defer></script>
+    <script src="./js/script.js" defer></script>
+</head>
+<body>
+    <header class="bg-white">
+        <nav class="width-100-p height-100-p pd-x-2rem d-flex d-f-just-sp-between d-f-vert-align-center">
+            <div id="logo" class="height-100-p d-flex d-f-vert-align-center">
+                <img src="./assets/img/icon.avif" alt="Icon of the game" class="height-100-p">
+                <h1 class="fs-h1 txt-orange">Campo minato</h1>
+            </div>
+            <div id="gameMode" class="fs-p d-flex d-f-just-sp-between d-f-vert-align-center gap-1rem">
+                <div>
+                    <label for="difficulty">Modalità: </label>
+                    <select name="difficulty" id="difficulty">
+                        <option value="1">Facile</option>
+                        <option value="2">Media</option>
+                        <option value="3">Difficile</option>
+                    </select>
+                </div>
+                <button id="choseMode" class="btn-orange">Avvia</button>
+            </div>
+        </nav>
+    </header>
+    <main class="bg-sand d-flex d-f-just-center d-f-vert-align-center">
+        <div id="gameContainer" class="width-100-p height-100-p d-flex d-f-just-center d-f-vert-align-center d-f-wrap pd-2rem">
+            
+        </div>
+    </main>
+    <footer class="bg-dark txt-white pd-2rem d-flex d-f-just-sp-between d-f-vert-align-center">
+        <p class="fs-p">Made with &hearts; by Booleaners</p>
+    </footer>
+</body>
+</html>
