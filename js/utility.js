@@ -5,7 +5,10 @@ const squareHard = 7;
 const bombs = [];
 const bombsImages = ["bomb1.png","bomb2.png","bomb3.png","bomb4.png"];
 const grassImages = ["grass.png","grass2.png"];
+const resultLose = ["Peccato, hai perso!","Ritenta, magari sarai più fortunato!","Hai perso, ahahaha!","Vai a zappare, magari in quello sarai più bravo...","Che noia...","Batterti è stato facilissimo!","Cerca di non farmi perdere altro tempo..."];
+const resultWin = ["Bravissimo, hai vinto la partita!","Complimenti, sei il vincitore!"];
 let points;
+let numSquare;
 let gameOver;
 let backgroundMusic;
 
@@ -13,7 +16,7 @@ function BtnPlayClicked(){
     points = 0;
     gameOver = false;
     const difficulty = parseInt(document.getElementById("difficulty").value);
-    const numSquare = GetNumberOfSquares(difficulty);
+    numSquare = GetNumberOfSquares(difficulty);
     DrawField(numSquare);
     ChoseBombPositions(numSquare);
     DefineBackgroundMusic();
@@ -126,12 +129,22 @@ function GameOver(){
     console.log("Game over! Points: "+points);
     backgroundMusic.pause();
 
+    document.getElementById("gameResultText").innerText = GetResultString();
     document.getElementById("gameResult").classList.remove("d-none");
-    document.getElementById("gameResultScore").innerHTML = points;
+    document.getElementById("gameResultScore").innerText = points;
 }
 
 function DefineBackgroundMusic(){
     backgroundMusic = new Audio("../assets/sound/music_background.mp3");
     backgroundMusic.loop = true;
     backgroundMusic.play();
+}
+
+function GetResultString(){
+    let res = '';
+    if(points<(10*(numSquare*numSquare - numberOfBomb)))
+        res = resultLose[GetRandomInt(resultLose.length-1,0)];
+    else
+        res = resultWin[GetRandomInt(resultWin.length-1,0)];
+    return res;
 }
