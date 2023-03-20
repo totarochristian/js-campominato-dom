@@ -17,6 +17,7 @@ function BtnPlayClicked(){
     DrawField(numSquare);
     ChoseBombPositions(numSquare);
     DefineBackgroundMusic();
+    document.getElementById("gameResult").classList.add("d-none");
 }
 
 function GetNumberOfSquares(difficulty){
@@ -124,6 +125,9 @@ function GameOver(){
     gameOver = true;
     console.log("Game over! Points: "+points);
     backgroundMusic.pause();
+
+    document.getElementById("gameResult").classList.remove("d-none");
+    document.getElementById("gameResultScore").innerHTML = points;
 }
 
 function DefineBackgroundMusic(){
