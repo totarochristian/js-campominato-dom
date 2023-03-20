@@ -10,6 +10,7 @@ const resultWin = ["Bravissimo, hai vinto la partita!","Complimenti, sei il vinc
 let points;
 let numSquare;
 let gameOver;
+let timeStart;
 let backgroundMusic;
 
 function BtnPlayClicked(){
@@ -21,6 +22,7 @@ function BtnPlayClicked(){
     ChoseBombPositions(numSquare);
     DefineBackgroundMusic();
     document.getElementById("gameResult").classList.add("d-none");
+    timeStart = new Date();
 }
 
 function GetNumberOfSquares(difficulty){
@@ -132,6 +134,7 @@ function GameOver(){
     document.getElementById("gameResultText").innerText = GetResultString();
     document.getElementById("gameResult").classList.remove("d-none");
     document.getElementById("gameResultScore").innerText = points;
+    document.getElementById("gameResultDuration").innerText = GetDurationInSeconds();
 }
 
 function DefineBackgroundMusic(){
@@ -147,4 +150,20 @@ function GetResultString(){
     else
         res = resultWin[GetRandomInt(resultWin.length-1,0)];
     return res;
+}
+
+function GetDurationInSeconds(){
+    let timeEnd = new Date();
+    let sec = Math.floor((timeEnd-timeStart)/1000);
+    let min = 0;
+    let hours = 0;
+    while(sec>=60){
+        sec-=60;
+        min++;
+        if(min>=60){
+            min-=60;
+            hours++;
+        }
+    }
+    return hours + " h " + min + " m " + sec + " s";
 }
